@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Basics of Graphics in HTML</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      color: white;
+
+      /* BACKGROUND IMAGE */
+      background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* dark overlay si qoraalka u muuqdo */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(2, 6, 23, 0.75);
+      z-index: -1;
+    }
+
+    header, footer {
+      background: #020617;
+      text-align: center;
+      padding: 15px;
+
+      animation: fadeDown 1s ease-in-out;
+    }
+
+    nav {
+      text-align: center;
+      padding: 10px;
+      background: #1e293b;
+
+      animation: fadeDown 1.2s ease-in-out;
+    }
+
+    nav a img {
+      margin: 10px;
+      transition: transform 0.3s;
+    }
+
+    nav a img:hover {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    .new {
+      text-align: center;
+      color: #38bdf8;
+      animation: fadeIn 2s ease-in;
+    }
+
+    ul {
+      text-align: center;
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 10px;
+      margin: 10px auto;
+      width: 250px;
+      background: #334155;
+      border-radius: 10px;
+
+      animation: slideUp 1s ease forwards;
+    }
+
+    li:hover {
+      transform: scale(1.05);
+      transition: 0.3s;
+    }
+
+    .chart-container {
+      width: 80%;
+      margin: 30px auto;
+      background: #020617;
+      padding: 20px;
+      border-radius: 15px;
+
+      animation: fadeIn 2s ease-in;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Basics of Graphics HTML</h1>
+</header>
+
+<nav>
+  <a href="index.html"><img src="images/home.png" height="40"></a>
+  <a href="#"><img src="images/contact.png" height="40"></a>
+  <a href="#"><img src="images/gellery.png" height="40"></a>
+  <a href="#"><img src="images/about.png" height="40"></a>
+  <a href="#"><img src="images/service.png" height="40"></a>
+  <a href="#"><img src="images/qudaarsom.png" height="40"></a>
+</nav>
+
+<main>
+  <h2 class="new">Steps</h2>
+
+  <ul>
+    <li>Images📸</li>
+    <li>Edit Videos🧑‍💻</li>
+    <li>CSS and JavaScript👨‍💻</li>
+    <li>Camera and Web Design🎆</li>
+  </ul>
+
+  <div class="chart-container">
+    <canvas id="myChart"></canvas>
+  </div>
+</main>
+
+<footer>
+  <h3>&copy; 2026 HTML Graphics</h3>
+  <p>Contact: 252 611689739</p>
+</footer>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Images', 'Videos', 'CSS/JS', 'Design'],
+      datasets: [{
+        label: 'Skills Level',
+        data: [80, 60, 90, 70],
+        backgroundColor: ['#38bdf8', '#a78bfa', '#22c55e', '#facc15']
+      }]
+    },
+    options: {
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
